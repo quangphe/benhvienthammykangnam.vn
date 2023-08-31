@@ -1,0 +1,39 @@
+.person_1_0_0 {
+    padding: 30px 0;
+    text-align: center;
+    background: #0a4285;
+    &__item {
+        position: relative;
+        img {
+            width: 100%;
+            display: block;
+            border-radius: 42px;
+        }
+    }
+    &__name {
+        color: #fff;
+        background-color: #fa8146;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        border-radius: 0 0 20px 20px;
+        padding: 10px 0;
+    }
+    .tns-nav button {
+        background: #216bc3;
+        width: 12px;
+        height: 12px;
+    }
+    .tns-nav > .tns-nav-active {
+        background: #6eaffd;
+        width: 55px;
+        border-radius: 5px;
+    }
+    @media (max-width: 1024px) {
+        &__item {
+            img {
+                height: auto;
+            }
+        }
+    }
+}

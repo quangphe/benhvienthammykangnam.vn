@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup_call_1_0_0</title>
+    <link rel="stylesheet" href="https://huudinh.github.io/assets/sass/lib.min.css">
+    <link rel="stylesheet" href="sass/popup_call_1_0_0.min.css">
+    <script src="https://huudinh.github.io/assets/js/lib.min.js"></script>
+    <script src="https://huudinh.github.io/assets/js/module.min.js"></script>
+</head>
+
+<body>
+    <button type="button" class="btn btn-danger bvkn_dkcall">button</button>
+    <section class="popup_call_1_0_0">
+        <div class="popup_call_1_0_0__boxMain">
+            <div class="popup_call_1_0_0__overlay" id="popup_call_1_0_0__overlay" style="display: none;"></div>
+            <div id="popup_call_1_0_0__overlayClickform" class="overlay_form" style="display: none;">
+                <div class="popup_call_1_0_0__box">
+                    <article>
+                        <div class="popup_call_1_0_0__header">
+                            <div class="popup_call_1_0_0__logo"></div>
+                            <div class="popup_call_1_0_0__headerpc">
+                                <div class="popup_call_1_0_0__header-note">Bạn muốn biết chi phí của dịch vụ nào,
+                                    để lại thông tin để Kangnam tư vấn giúp bạn! </div>
+                            </div>
+                        </div>
+                        <div class="popup_call_1_0_0__content">
+                            <div class="popup_call_1_0_0__form">
+                                <div style="display:none">
+                                    <input type="text" placeholder="Họ và tên (*)" value="Yêu Cầu Gọi Lại" id="iname"
+                                        name="iname">
+                                    <textarea type="text" placeholder="Nhu cầu tư vấn" id="itext"
+                                        name="itext"></textarea>
+                                    <input id="iemail" name="iemail" value="no@email.benhvienthammykangnam.vn"
+                                        type="hidden" placeholder="Email">
+                                    <input type="hidden" id="gclid_field" name="gclid_field" value="">
+                                    <input type="hidden" id="name_campaign" name="name_campaign"
+                                        value="[Kangnam] Yêu Cầu Gọi Lại">
+                                    <input type="hidden" id="code_campaign" name="code_campaign" value="533588630">
+                                </div>
+                                <input id="imob" name="imob" type="textbox" placeholder="Nhập số điện thoại của bạn*:">
+                            </div>
+                            <div class="popup_call_1_0_0__submit">
+                                <input onclick="ants_sent_phone(this);" id="pop_sent" type="button"
+                                    value="Yêu cầu tư vấn">
+                            </div>
+                        </div>
+                        <div class="popup_call_1_0_0__headerpc">
+                            <div class="popup_call_1_0_0__header-note">* Hoặc gọi ngay hotline: 19006466</div>
+                        </div>
+                        <a id="popup_call_1_0_0__closePopup" class="popup_call_1_0_0__closePopup"></a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script src="js/popup_call_1_0_0.js"></script>
+
+</html>
