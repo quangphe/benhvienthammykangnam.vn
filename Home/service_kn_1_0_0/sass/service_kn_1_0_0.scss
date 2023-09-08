@@ -1,0 +1,107 @@
+.service_kn_1_0_0 {
+    padding: 30px 0;
+    .row {
+        align-items: center;
+    }
+    &__pic {
+        width: 455px;
+        display: block;
+        margin: 0 auto;
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+        }
+    }
+    &__text {
+        text-align: center;
+    }
+    &__title {
+        color: #003366;
+        font-size: 25px;
+        margin: 10px 0;
+    }
+    &__boxItem {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 10px auto 0;
+        width: 80%;
+    }
+    &__titleRight {
+        font-size: 32px;
+        color: #003366;
+        margin-bottom: 0;
+        font-weight: 600;
+        text-align: center;
+    }
+    &__item {
+        position: relative;
+        width: 28%;
+        margin: 10px;
+        img {
+            border-radius: 10px;
+            width: 100%;
+            display: block;
+        }
+        &:hover {
+            .service_kn_1_0_0__content {
+                background-color: #fa8146;
+            }
+        }
+    }
+    &__content {
+        margin: 0;
+        font-size: 14px;
+        color: #fff;
+        background: #375a96;
+        height: 35px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        opacity: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0 0 10px 10px;
+        text-transform: uppercase;
+    }
+    @media (max-width: 820px) {
+        &__pic {
+            width: 286px;
+        }
+        &__item {
+            img {
+                height: auto;
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        &__boxItem {
+            width: 100%;
+        }
+    }
+    @media (max-width: 414px) {
+        .row {
+            flex-direction: column-reverse;
+        }
+        &__pic {
+            width: 362px;
+        }
+        &__title {
+            font-size: 22px;
+        }
+    }
+    @media (max-width: 390px) {
+        &__titleRight {
+            font-size: 30px;
+        }
+        &__pic {
+            width: 340px;
+        }
+        &__item {
+            margin: 8px;
+        }
+    }
+}
