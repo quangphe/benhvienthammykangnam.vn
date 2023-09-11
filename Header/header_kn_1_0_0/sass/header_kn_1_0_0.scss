@@ -82,6 +82,7 @@
       transition: transform 0.2s linear;
       opacity: 0;
       display: flex;
+      gap: 30px;
       visibility: hidden;
       ul {
         list-style: none;
@@ -172,11 +173,23 @@
         display: block;
       }
     }
+    &__flag {
+      display: flex;
+      gap: 6px;
+    }
     &__menu--mb {
       display: none;
     }
   
     @media (max-width: 1200px) {
+      position: fixed;
+      background: #fff;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      transition: all .3s ease;
+      box-shadow: 0 1px 25px rgba(0,0,0,0.1);
+      border-top: none;
       .container {
         padding-left: 0;
         padding-right: 0;
@@ -185,7 +198,7 @@
         padding: 5px 0;
       }
       &__bg {
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0);
         position: fixed;
         left: 0;
         bottom: 0;
@@ -195,12 +208,15 @@
       }
       &__nav {
         display: block;
-        width: 35px;
-        img {
-          display: block;
-          width: 100%;
-          height: auto;
-        }
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+        color: #db7f27;
+        // img {
+        //   display: block;
+        //   width: 100%;
+        //   height: auto;
+        // }
       }
       &__btnGroup {
         display: block;
@@ -265,8 +281,11 @@
         padding: 3px 0;
       }
       &__btn {
-        display: none;
         margin: 0;
+        background: #db7f27;
+        border: none;
+        border-radius: 30px;
+        padding: 7px;
       }
       &__link::after {
         content: "ˇ";
@@ -356,9 +375,10 @@
       }
       &__nav {
         width: 28px;
+        height: 45px;
       }
       &__logo {
-        max-width: 122px;
+        max-width: 140px;
         padding: 0 0 8px 0;
       }
       &__logoMb {
@@ -451,10 +471,12 @@
           li {
             &.menuSub {
               position: relative;
+              display: none;
               background-color: #255b89;
             }
-            &.menuSub.current {
+            &.menuSub.active {
               height: 100%;
+              display: block;
               padding-bottom: 120px;
             }
           }
@@ -468,6 +490,51 @@
         text-align: left;
         color: #fff;
         font-size: 14px;
+      }
+      &__dropItem {
+        margin: 0;
+        padding-left: 20px;
+        &:nth-child(1) {
+          padding-top: 20px;
+        }
+        ul {
+          padding: 0;
+          li {
+            list-style: none;
+            margin-bottom: 15px;
+            a {
+              color: #fff;
+            }
+          }
+        }
+      }
+      &__dropTitle {
+        display: none;
+      }
+    }
+    @media (max-width: 280px) {
+      &__logo {
+        max-width: 106px;
+      }
+      &__menu--mb {
+        ul {
+          &.tabs {
+            li {
+              padding: 10px 8px;
+              font-size: 10px;
+            }
+          }
+        }
+      }
+      &__dropItem {
+        padding-left: 12px;
+        ul {
+          li {
+            a {
+              font-size: 11px;
+            }
+          }
+        }
       }
     }
   }
