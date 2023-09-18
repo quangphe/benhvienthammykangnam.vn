@@ -63,3 +63,6 @@ const header = [
         group: '<div class="header_kn_1_0_0__dropItem"><div class="header_kn_1_0_0__dropTitle">Về thương hiệu Kangnam</div><ul><li><a href="#">Giới thiệu</a> </li><li><a href="#">Đội ngũ bác sĩ</a></li><li><a href="#">Công nghệ</a></li><li><a href="#">Video dịch vụ</a></li><li><a href="#">Thông tin liên hệ</a></li></ul></div><div class="header_kn_1_0_0__dropItem"><div class="header_kn_1_0_0__dropTitle">Bảng giá & chính sách</div><ul><li><a href="#">Bảng giá dịch vụ thẩm mỹ</a> </li><li><a href="#">Chính sách bảo hành</a></li><li><a href="#">Hình ảnh trước sau khách hàng</a></li></ul></div>',
     },
 ]
+
+const headerJSON = JSON.stringify(header);
+console.log(headerJSON);
