@@ -13,7 +13,7 @@ const getService = async () => {
     const serviceCard = (data) => {
         html = `
             <div class="service_15_0_0__pic">
-                <img width="456" height="456" class="lazy" data-src="${data.serive_img}" alt="">
+                <img width="456" height="456" src="${data.serive_img}" alt="" loading="lazy">
             </div>
             <div class="service_15_0_0__text">
                 <h3 class="service_15_0_0__title">${data.serive_dv}</h3>
@@ -46,7 +46,7 @@ const getService = async () => {
             html += `
                 <div class="service_15_0_0__item">
                     <a href="${item.link}">
-                        <img width="164" height="174" class="lazy" data-src="${item.image}" alt="">
+                        <img width="164" height="174" src="${item.image}" alt="" loading="lazy">
                         <h3 class="service_15_0_0__content">${item.name}</h3>
                     </a>
                 </div>
