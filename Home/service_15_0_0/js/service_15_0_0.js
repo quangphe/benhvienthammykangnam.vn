@@ -44,12 +44,10 @@ const getService = async () => {
         let html = '';
         data.map((item) => {
             html += `
-                <div class="service_15_0_0__item">
-                    <a href="${item.link}">
-                        <img width="164" height="174" src="${item.image}" alt="" loading="lazy">
-                        <h3 class="service_15_0_0__content">${item.name}</h3>
-                    </a>
-                </div>
+                <a href="${item.link}" class="service_15_0_0__item">
+                    <img width="164" height="174" src="${item.image}" alt="" loading="lazy">
+                    <h3 class="service_15_0_0__content">${item.name}</h3>
+                </a>
             `;
         });
         document.getElementById("service_15_0_0__boxItem").innerHTML = html;
@@ -59,12 +57,10 @@ const getService = async () => {
     const serviceTitle = (data) => {
         console.log(data);
         let html = '';
-        html += `
-                <div class="service_15_0_0__titleRight">
-                    ${data.service_title}
-                </div>
+        html += `              
+                ${data.service_title}
             `;
-        document.getElementById("service_15_0_0__titleRight").innerHTML = html;
+        document.getElementById("service_15_0_0__titleRight").innerText = html;
     }
     serviceTitle(dataServiceTitle);
 };
