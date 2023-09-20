@@ -21,7 +21,7 @@ const getDoctor = async () => {
     const doctorCard = (data) => {
         html = `
             <div class="doctor_10_0_0__pic">
-                <img width="399" height="401" class="lazy" data-src="${data.doctor_img}" alt="">
+                <img width="399" height="401" src="${data.doctor_img}" alt="" loading="lazy">
             </div>
             <div class="doctor_10_0_0__content">
                 ${data.doctor_dv}
@@ -52,7 +52,7 @@ const getDoctor = async () => {
         data.map((item, index) => {
             html += `
                 <div class="doctor_10_0_0__item modal-btn" onclick="modalDoctor(${index})">
-                    <img width="188" height="188" class="lazy" data-src="${item.image}" alt="">
+                    <img width="188" height="188" src="${item.image}" alt="" loading="lazy">
                 </div>
                 <div class="modal" id="modal-${index}" style="display: none;">
                     <div class="modal-bg"></div>
