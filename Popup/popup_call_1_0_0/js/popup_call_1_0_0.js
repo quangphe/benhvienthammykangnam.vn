@@ -1,14 +1,11 @@
-const popup_call_1_0_0 = `
-<section class="popup_call_1_0_0" id="popup_call_1_0_0">   
+const popup_call_1_0_0 = ` 
     <div class="popup_call_1_0_0__overlay" id="popup_call_1_0_0__overlay"></div>
-    <div class="popup_call_1_0_0__mainForm">
+    <div class="popup_call_1_0_0__mainForm" id="popup_call_1_0_0">
         <div class="popup_call_1_0_0__box">          
             <div class="popup_call_1_0_0__header">
                 <div class="popup_call_1_0_0__logo"></div>
-                <div class="popup_call_1_0_0__headerpc">
-                    <div class="popup_call_1_0_0__header-note">Bạn muốn biết chi phí của dịch vụ nào,
-                        để lại thông tin để Kangnam tư vấn giúp bạn! </div>
-                </div>
+                <div class="popup_call_1_0_0__header-note">Bạn muốn biết chi phí của dịch vụ nào,
+                    để lại thông tin để Kangnam tư vấn giúp bạn! </div>
             </div>
             <div class="popup_call_1_0_0__content">
                 <div class="popup_call_1_0_0__form">
@@ -35,7 +32,6 @@ const popup_call_1_0_0 = `
             <a id="popup_call_1_0_0__closePopup" class="popup_call_1_0_0__closePopup"></a>          
         </div>
     </div>
-</section>
 `;
 
 const callBtn = document.querySelectorAll(".btnkn1call, .btncallnow, .btncallme, .bvkn_dkcall");
@@ -43,15 +39,18 @@ for (let i = 0; i < callBtn.length; i++) {
     callBtn[i].addEventListener('click', () => {
         document.getElementsByTagName('body')[0].insertAdjacentHTML("beforeend", popup_call_1_0_0)
         document.getElementById('popup_call_1_0_0__closePopup').addEventListener('click', () => {
-            document.getElementById('popup_call_1_0_0').remove()
+            document.getElementById('popup_call_1_0_0').remove();
+            document.getElementById('popup_call_1_0_0__overlay').remove();
         })
         document.getElementById('popup_call_1_0_0__overlay').addEventListener('click', () => {
-            document.getElementById('popup_call_1_0_0').remove()
+            document.getElementById('popup_call_1_0_0').remove();
+            document.getElementById('popup_call_1_0_0__overlay').remove();
         })
         window.onclick = function (e) {
             console.log(e.target);
             if (e.target == document.querySelector('.popup_call_1_0_0__mainForm')) {
-                document.getElementById('popup_call_1_0_0').remove()
+                document.getElementById('popup_call_1_0_0').remove();
+                document.getElementById('popup_call_1_0_0__overlay').remove();
             }
         }
     })

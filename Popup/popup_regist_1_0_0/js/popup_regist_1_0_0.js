@@ -1,7 +1,7 @@
 const popup_regist_1_0_0 = `
-<section class="popup_regist_1_0_0" id="popup_regist_1_0_0">
+
     <div class="popup_regist_1_0_0__overlay" id="popup_regist_1_0_0__overlay"></div>
-    <div class="popup_regist_1_0_0__boxTv">
+    <div class="popup_regist_1_0_0__boxTv" id="popup_regist_1_0_0">
         <div class="popup_regist_1_0_0__form" id="regist_ft_1_0_0__form">
             <div class="popup_regist_1_0_0__title">
                 <img width="130" height="auto"
@@ -50,7 +50,7 @@ const popup_regist_1_0_0 = `
             </div>
         </div>
     </div>
-</section>
+
 `;
 
 const callBtn = document.querySelectorAll(".btnkn1call, .btncallnow, .btncallme, .bvkn_dkcall, .notiprice");
@@ -58,15 +58,18 @@ for (let i = 0; i < callBtn.length; i++) {
     callBtn[i].addEventListener('click', () => {
         document.getElementsByTagName('body')[0].insertAdjacentHTML("beforeend", popup_regist_1_0_0)
         document.getElementById('close-form').addEventListener('click', () => {
-            document.getElementById('popup_regist_1_0_0').remove()
+            document.getElementById('popup_regist_1_0_0').remove();
+            document.getElementById('popup_regist_1_0_0__overlay').remove();
         })
         document.getElementById('popup_regist_1_0_0__overlay').addEventListener('click', () => {
             document.getElementById('popup_regist_1_0_0').remove()
+            document.getElementById('popup_regist_1_0_0__overlay').remove();
         })
         window.onclick = function (e) {
             console.log(e.target);
             if (e.target == document.querySelector('.popup_regist_1_0_0__boxTv')) {
-                document.getElementById('popup_regist_1_0_0').remove()
+                document.getElementById('popup_regist_1_0_0').remove();
+                document.getElementById('popup_regist_1_0_0__overlay').remove();
             }
         }
     })
