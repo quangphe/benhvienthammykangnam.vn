@@ -82,4 +82,21 @@
         top: -18px;
         right: -24px;
     }
+    @media (max-width: 375px) {
+        &__box {
+            article {
+                width: 320px;
+                left: calc(54% - 180px);
+            }
+        }
+    }
+    @media (max-width: 280px) {
+        &__box {
+            article {
+                padding: 20px 2px;
+                width: 232px;
+                left: calc(70% - 180px);
+            }
+        }
+    }
 }

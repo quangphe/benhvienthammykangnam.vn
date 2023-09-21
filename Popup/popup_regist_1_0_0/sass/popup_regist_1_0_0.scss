@@ -10,11 +10,9 @@
         background: rgba(0,0,0,0.9);
     }
     &__boxTv {
-        position: fixed;
+        position: absolute;
         width: 100%;
         top: 100px;
-        padding: 10px;
-        z-index: 12;
     }
     &__form {
         padding-bottom: 20px;
@@ -23,6 +21,11 @@
         background-color: #fff;
         width: 450px;
         margin: 0 auto;
+        position: fixed;
+        left: 50%;
+		top: 30%;
+		transform: translate(-50%, -50%);
+        box-shadow: 0 1px 10px rgba(0,0,0,.1);
         span {
             padding: 10px 15px;
             display: block;
@@ -38,7 +41,7 @@
         color: #fff;
         text-transform: uppercase;
         font-weight: 600;
-        font-size: 17px;
+        font-size: 16px;
         padding: 10px 15px;
         display: flex;
         justify-content: space-between;
@@ -47,6 +50,9 @@
             cursor: pointer;
             font-size: 10px;
             padding: 10px;
+        }
+        img {
+            width: 112px;
         }
     }
     &__item {
@@ -86,9 +92,28 @@
             font-weight: 600;
         }
     }
-    @media(max-width: 414px) {
+    @media (max-width: 414px) {
         &__form {
-            width: 100%;
+            width: 370px;
+        }
+        &__title {
+            font-size: 14px;
+        }
+    }
+    @media (max-width: 375px) {
+        &__form {
+            width: 340px;
+            top: 40%;
+        }
+    }
+    @media (max-width: 280px) {
+        &__form {
+            width: 240px;
+        }
+        &__title {
+            img {
+                display: none;
+            }
         }
     }
 }
