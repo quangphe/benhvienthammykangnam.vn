@@ -63,10 +63,11 @@ for (let i = 0; i < callBtn.length; i++) {
         document.getElementById('popup_regist_1_0_0__overlay').addEventListener('click', () => {
             document.getElementById('popup_regist_1_0_0').remove()
         })
-        // window.onclick = function (e) {
-        //     if (e.target == document.getElementById('popup_call_1_0_0')) {
-        //         document.getElementById('popup_call_1_0_0').remove()
-        //     }
-        // }
+        window.onclick = function (e) {
+            console.log(e.target);
+            if (e.target == document.querySelector('.popup_regist_1_0_0__boxTv')) {
+                document.getElementById('popup_regist_1_0_0').remove()
+            }
+        }
     })
 }

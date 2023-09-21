@@ -10,16 +10,20 @@
         opacity: .7;
         background: rgba(0,0,0,.9);
     }
-    &__boxTv {
+    &__mainForm {
         position: absolute;
         width: 100%;
         top: 60px;
-        background: #fff;
         z-index: 11;
         margin: 50px auto;
+        display: flex;
+        justify-content: center;
+    }
+    &__boxTv {
+        position: relative;
+        background: #fff;
         width: 350px;
-        position: fixed;
-        left: calc(50% - 180px);
+        padding: 20px 0;
         border-radius: 4px;
         box-shadow: 0 1px 10px rgba(0,0,0,.1);
     }
@@ -101,25 +105,17 @@
         right: -24px;
     }
     @media (max-width: 390px) {
-        &__boxTv {
-            width: 360px;
-        }
         &__closePopup {
             top: -22px;
             right: 0px;
         }
     }
-    @media (max-width: 375px) {
+    @media (max-width: 360px) {
         &__boxTv {
-            width: 351px;
-            left: calc(51% - 180px);
+            margin: 0 15px;
         }
     }
     @media (max-width: 280px) {
-        &__boxTv {
-            width: 263px;
-            left: calc(67% - 180px);
-        }
         &__headerBox {
             img {
                 width: 180px;

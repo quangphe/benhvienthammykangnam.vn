@@ -1,7 +1,7 @@
 const popup_call_1_0_0 = `
 <section class="popup_call_1_0_0" id="popup_call_1_0_0">   
     <div class="popup_call_1_0_0__overlay" id="popup_call_1_0_0__overlay"></div>
-    <div id="popup_call_1_0_0__overlayClickform" class="overlay_form">
+    <div class="popup_call_1_0_0__mainForm">
         <div class="popup_call_1_0_0__box">          
             <div class="popup_call_1_0_0__header">
                 <div class="popup_call_1_0_0__logo"></div>
@@ -31,9 +31,7 @@ const popup_call_1_0_0 = `
                         value="Yêu cầu tư vấn">
                 </div>
             </div>
-            <div class="popup_call_1_0_0__headerpc">
-                <div class="popup_call_1_0_0__header-note">* Hoặc gọi ngay hotline: <b>19006466</b></div>
-            </div>
+            <div class="popup_call_1_0_0__header-note">* Hoặc gọi ngay hotline: <b>19006466</b></div>
             <a id="popup_call_1_0_0__closePopup" class="popup_call_1_0_0__closePopup"></a>          
         </div>
     </div>
@@ -50,10 +48,11 @@ for (let i = 0; i < callBtn.length; i++) {
         document.getElementById('popup_call_1_0_0__overlay').addEventListener('click', () => {
             document.getElementById('popup_call_1_0_0').remove()
         })
-        // window.onclick = function (e) {
-        //     if (e.target == document.getElementById('popup_call_1_0_0')) {
-        //         document.getElementById('popup_call_1_0_0').remove()
-        //     }
-        // }
+        window.onclick = function (e) {
+            console.log(e.target);
+            if (e.target == document.querySelector('.popup_call_1_0_0__mainForm')) {
+                document.getElementById('popup_call_1_0_0').remove()
+            }
+        }
     })
 }
