@@ -101,6 +101,12 @@
         }
     }
     @media (max-width: 375px) {
+        &__title {
+            gap: 14px;
+            img {
+                width: 86px;
+            }
+        }
         &__form {
             width: 340px;
             top: 40%;
@@ -108,7 +114,7 @@
     }
     @media (max-width: 280px) {
         &__form {
-            width: 240px;
+            width: 260px;
         }
         &__title {
             img {

@@ -13,17 +13,15 @@
         position: absolute;
         width: 100%;
         top: 60px;
-        article {
-            background: #fff;
-            z-index: 11;
-            margin: 50px auto;
-            padding: 20px 0;
-            width: 350px;
-            position: fixed;
-            left: calc(50% - 180px);
-            border-radius: 4px;
-            box-shadow: 0 1px 10px rgba(0,0,0,0.1);
-        }
+        background: #fff;
+        z-index: 11;
+        margin: 50px auto;
+        padding: 20px 0;
+        width: 350px;
+        position: fixed;
+        left: calc(50% - 180px);
+        border-radius: 4px;
+        box-shadow: 0 1px 10px rgba(0,0,0,0.1);
     }
     &__header {
         text-align: center;
@@ -40,8 +38,7 @@
     }
     &__header-note {
         padding: 20px 0 10px;
-        color: #777;
-        font-weight: 600;
+        color: #9c7235;
         font-style: italic;
     }
     &__content {
@@ -55,6 +52,8 @@
             padding: 15px 0;
             text-align: center;
             color: #333;
+            border-radius: 30px;
+            border: 2px solid #9c7235;
         }
     }
     &__submit {
@@ -66,10 +65,10 @@
             cursor: pointer;
             font-size: 14px;
             margin-top: 5px;
-            border-radius: 4px;
             text-transform: uppercase;
             padding: 15px 0;
             font-weight: 700;
+            border-radius: 30px;
         }
     }
     &__closePopup {
@@ -82,21 +81,30 @@
         top: -18px;
         right: -24px;
     }
-    @media (max-width: 375px) {
+    @media (max-width: 390px) {
         &__box {
-            article {
-                width: 320px;
-                left: calc(54% - 180px);
-            }
+            width: 360px;
+        }
+        &__closePopup {
+            top: -24px;
+            right: 0px;
         }
     }
     @media (max-width: 280px) {
         &__box {
-            article {
-                padding: 20px 2px;
-                width: 232px;
-                left: calc(70% - 180px);
-            }
+            padding: 20px 2px;
+            width: 255px;
+            left: calc(69% - 180px);
         }
+        &__logo {
+            width: 170px;
+            display: block;
+            margin: 0 auto;
+        }
+        &__header-note {
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
     }
 }
