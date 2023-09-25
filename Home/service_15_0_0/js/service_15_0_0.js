@@ -1,29 +1,24 @@
 const service = [];
 const getService = async () => {
-    const response = await fetch(`https://benhvienthammykangnam.vn/wp-json/acf/v3/pages/155879/group_page_field`);
+    const response = await fetch(`https://benhvienthammykangnam.vn/wp-json/wp/v2/pages/155879`);
     const data = await response.json();
-    const dataServiceTitle = data.group_page_field.body_custom[1].service_sub_fields[0];
-    const dataService = data.group_page_field.body_custom[1].service_sub_fields[0].service_info2;
-    const dataServiceInfo = data.group_page_field.body_custom[1].service_sub_fields[0].service_info;
+    const dataServiceTitle = data.acf.group_page_field.body_custom[1].service_sub_fields[0];
+    const dataService = data.acf.group_page_field.body_custom[1].service_sub_fields[0].service_info2;
+    const dataServiceInfo = data.acf.group_page_field.body_custom[1].service_sub_fields[0].service_info;
     dataServiceInfo.map((item) => {
         const title = item.title.split("\r\n");
         service.push({ image: title[0], name: title[1], link: title[2] });
     })
 
     const serviceCard = (data) => {
-        html = `
-            <div class="service_15_0_0__pic">
-                <img width="456" height="456" src="${data.serive_img}" alt="" loading="lazy">
-            </div>
-            <div class="service_15_0_0__text">
-                <h3 class="service_15_0_0__title">${data.serive_dv}</h3>
-                <p class="service_15_0_0__desc">${data.serive_cont}</p>
-            </div>
-        `;
-        document.getElementById("service_15_0_0__col5").innerHTML = html;
+        function service() {
+            document.getElementById("service_15_0_0__image").src = data.serive_img;
+            document.getElementById("service_15_0_0__title").innerHTML = data.serive_dv;
+            document.getElementById("service_15_0_0__desc").innerHTML = data.serive_cont;
+        }
+        service();
 
     }
-
     serviceCard(dataService[0]);
 
     const serviceNext = (data) => {
@@ -39,30 +34,6 @@ const getService = async () => {
         }, 3000);
     }
     serviceNext(dataService);
-
-    const serviceInfo = (data) => {
-        let html = '';
-        data.map((item) => {
-            html += `
-                <a href="${item.link}" class="service_15_0_0__item">
-                    <img width="164" height="174" src="${item.image}" alt="" loading="lazy">
-                    <h3 class="service_15_0_0__content">${item.name}</h3>
-                </a>
-            `;
-        });
-        document.getElementById("service_15_0_0__boxItem").innerHTML = html;
-    }
-    serviceInfo(service);
-
-    const serviceTitle = (data) => {
-        console.log(data);
-        let html = '';
-        html += `              
-                ${data.service_title}
-            `;
-        document.getElementById("service_15_0_0__titleRight").innerText = html;
-    }
-    serviceTitle(dataServiceTitle);
 };
 
 getService();

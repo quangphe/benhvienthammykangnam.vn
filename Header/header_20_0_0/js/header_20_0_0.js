@@ -1,14 +1,13 @@
 // Get API Header
 const header = [];
 const getHeader = async () => {
-  const response = await fetch(`https://benhvienthammykangnam.vn/wp-json/acf/v3/pages/131621/group_page_field`);
+  const response = await fetch(`https://benhvienthammykangnam.vn/wp-json/wp/v2/pages/131621`);
   const data = await response.json();
-  const headerJSON = data.group_page_field.header_custom[0].header_sub_fields[0].id_header_20_0_0_sub3;
+  const headerJSON = data.acf.group_page_field.header_custom[0].header_sub_fields[0].id_header_20_0_0_sub3;
   headerJSON.map((item, index) => {
     const titlePC = item.titlePC.split("\r\n");
     header.push({ group: item.col1pc, cate: titlePC[0], link: titlePC[1], image: titlePC[2], iconClass: titlePC[3], dataContent: `tab${index}` });
   });
-  // console.log(header);
   buildHeader(header);
 };
 getHeader();
@@ -52,7 +51,7 @@ buildHeader = async (data) => {
       headerMobile();
     } else {
       // Ẩn header mobile và hiển thị header desktop
-      document.getElementById("headerSideBar").innerHTML = pcCard();
+      // document.getElementById("headerSideBar").innerHTML = pcCard();
       headerDesktop();
     }
   }
@@ -61,26 +60,23 @@ buildHeader = async (data) => {
     const renderDataHeader = (data) => {
       let html = "";
       data.map((item) => {
+        // console.log(item);
         html += `
-              <li class="header_20_0_0__item mega_menu">
-                  <div class="header_20_0_0__link">
-                      <a target="_blank" href="#">${item.cate}</a>
-                  </div>
-                  <div class="header_20_0_0__dropdown">
-                      <div class="header_20_0_0__dropItem">
-                          <div class="header_20_0_0__pic">
-                              <img width="340" height="221" src="${item.image}" alt="">
-                          </div>
-                      </div>
-                      ${item.group}
-                  </div>
-              </li>
-              `;
+              
+          <div class="header_20_0_0__dropItem">
+              <div class="header_20_0_0__pic">
+                  <img width="340" height="221" src="${item.image}" alt="">
+              </div>
+          </div>
+          ${item.group}
+                  
+        `;
       });
       return html;
     };
-    document.getElementById("header_20_0_0__listMenu").innerHTML =
+    document.getElementsByClassName("header_20_0_0__dropdown").innerHTML =
       renderDataHeader(header);
+    console.log(renderDataHeader(header));
   }
 
   function headerMobile() {
@@ -153,28 +149,28 @@ buildHeader = async (data) => {
           </div>
       `;
   };
-  const pcCard = () => {
-    return `
-          <div class="header_20_0_0__list">
-              <div class="header_20_0_0__listMenu" id="header_20_0_0__listMenu"></div>
-              <div class="header_20_0_0__flag header_20_0_0__flag-pc">
-                  <div class="header_20_0_0__icon">
-                  <a target="_blank" href="" rel="nofollow">
-                      <img width="33" height="18" src="https://benhvienthammykangnam.vn/wp-content/themes/SCI_Theme/Module/Header/header_20_0_0/images/en.gif" alt="en">
-                  </a>
-                  <a target="_blank" href="/">
-                      <img width="33" height="18" src="https://benhvienthammykangnam.vn/wp-content/themes/SCI_Theme/Module/Header/header_20_0_0/images/vi.gif" alt="vi">
-                  </a>
-                  </div>
-                  <div class="header_20_0_0__search">
-                      <div class="header_20_0_0__btn location">
-                          <img width="20" height="20" src="https://benhvienthammykangnam.vn/wp-content/themes/SCI_Theme/Module/Header/header_20_0_0/images/location.svg" alt="location">
-                      </div>
-                  </div>
-              </div>
-          </div>
-      `;
-  };
+  // const pcCard = () => {
+  //   return `
+  //     <div class="header_20_0_0__list">
+  //         <div class="header_20_0_0__listMenu" id="header_20_0_0__listMenu"></div>
+  //         <div class="header_20_0_0__flag header_20_0_0__flag-pc">
+  //             <div class="header_20_0_0__icon">
+  //             <a target="_blank" href="" rel="nofollow">
+  //                 <img width="33" height="18" src="https://benhvienthammykangnam.vn/wp-content/themes/SCI_Theme/Module/Header/header_20_0_0/images/en.gif" alt="en">
+  //             </a>
+  //             <a target="_blank" href="/">
+  //                 <img width="33" height="18" src="https://benhvienthammykangnam.vn/wp-content/themes/SCI_Theme/Module/Header/header_20_0_0/images/vi.gif" alt="vi">
+  //             </a>
+  //             </div>
+  //             <div class="header_20_0_0__search">
+  //                 <div class="header_20_0_0__btn location">
+  //                     <img width="20" height="20" src="https://benhvienthammykangnam.vn/wp-content/themes/SCI_Theme/Module/Header/header_20_0_0/images/location.svg" alt="location">
+  //                 </div>
+  //             </div>
+  //         </div>
+  //     </div>
+  //   `;
+  // };
   runBuild();
 }
 
