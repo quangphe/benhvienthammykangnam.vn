@@ -30,8 +30,8 @@
     margin: 0;
     padding: 0;
     align-items: center;
-    gap: 30px;
-    justify-content: space-between;
+    gap: 70px;
+    justify-content: flex-end;
     list-style: none;
     position: relative;
   }
@@ -74,7 +74,7 @@
     transition: all 0.2s linear;
     position: absolute;
     top: 42px;
-    left: 0px;
+    left: 70px;
     background: #fff;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.15);
@@ -157,11 +157,8 @@
   &__nav {
     display: none;
   }
-  &__logoMb {
-    display: none;
-  }
-  &__btnGroup {
-    display: none;
+  &__icon {
+    margin-top: 5px;
   }
   &__bg {
     display: none;
@@ -223,11 +220,6 @@
       width: 40px;
       height: 40px;
       color: #db7f27;
-      // img {
-      //   display: block;
-      //   width: 100%;
-      //   height: auto;
-      // }
     }
     &__btnGroup {
       display: block;
@@ -247,17 +239,6 @@
     &__logo {
       max-width: 123px;
       padding: 6px 0;
-    }
-    &__logoMb {
-      display: block;
-      margin: 0 auto;
-      max-width: 123px;
-      img {
-        width: 100%;
-        margin: 15px auto;
-        display: block;
-        height: auto;
-      }
     }
     &__detail {
       flex-direction: column;
@@ -386,10 +367,10 @@
     }
     &__flag {
       display: none;
-    }
-    
+    }   
     &__list {
       align-items: flex-start;
+      justify-content: flex-start;
       flex-direction: row;
     }
     &__listMenu {

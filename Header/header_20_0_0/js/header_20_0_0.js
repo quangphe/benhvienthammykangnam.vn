@@ -24,11 +24,7 @@ buildHeader = async (data) => {
     });
   });
 
-  document.getElementById("headerMenuBtn").addEventListener("click", () => {
-    document.getElementById("headerSideBar").classList.add("show");
-    document.getElementById("headerBg").style.display = "block";
-    document.getElementById("headerMenuBtn").innerHTML = "✕";
-  });
+
   document.getElementById("headerBg").addEventListener("click", () => {
     document.getElementById("headerSideBar").classList.remove("show");
     document.getElementById("headerBg").style.display = "none";
@@ -85,6 +81,12 @@ buildHeader = async (data) => {
     if (window.innerWidth < 920) {
       renderDataHeader(header, "Mắt");
     }
+    document.getElementById("headerMenuBtn").addEventListener("click", () => {
+      document.getElementById("headerSideBar").classList.add("show");
+      document.getElementById("headerBg").style.display = "block";
+      document.getElementById("headerMenuBtn").innerHTML = "✕";
+      renderDataHeader(header, "Mắt");
+    });
   }
   runBuild();
 }
