@@ -12,7 +12,6 @@ const getHeader = async () => {
 };
 getHeader();
 
-
 // xử lý data dữ liệu header
 buildHeader = async (data) => {
   const menuItem = document.querySelectorAll(".header_20_0_0__item");
@@ -45,132 +44,48 @@ buildHeader = async (data) => {
   });
 
   function runBuild() {
-    if (window.innerWidth < 920) {
-      // Ẩn header desktop và hiển thị header mobile
-      document.getElementById("headerSideBar").innerHTML = mbCard();
-      headerMobile();
-    } else {
-      // Ẩn header mobile và hiển thị header desktop
-      // document.getElementById("headerSideBar").innerHTML = pcCard();
-      headerDesktop();
-    }
+    headerDesktop();
   }
 
   function headerDesktop() {
-    const renderDataHeader = (data) => {
+    var itemMenu = document.querySelectorAll('.header_20_0_0__item');
+    for (let i = 0; i < itemMenu.length; i++) {
+      itemMenu[i].addEventListener('mouseover', function () {
+        var menuAtt = itemMenu[i].getAttribute('id');
+        renderDataHeader(header, menuAtt);
+      });
+      itemMenu[i].addEventListener('mouseover', function () {
+        document.getElementById('headerBg').style.display = "block";
+      });
+      itemMenu[i].addEventListener('click', function () {
+        var menuAtt = itemMenu[i].getAttribute('id');
+        renderDataHeader(header, menuAtt);
+      });
+    }
+    var headerBg = document.getElementById('headerBg');
+    headerBg.addEventListener('mouseover', function () {
+      document.getElementById("header_20_0_0__dropdown").classList.remove('active');
+    })
+    const renderDataHeader = (data, id) => {
       let html = "";
-      data.map((item) => {
-        // console.log(item);
-        html += `
-              
+      var dataFilter = data.filter(item => {
+        return item.cate === id
+      });
+      html = `             
           <div class="header_20_0_0__dropItem">
               <div class="header_20_0_0__pic">
-                  <img width="340" height="221" src="${item.image}" alt="">
+                  <img width="340" height="221" src="${dataFilter[0].image}" alt="">
               </div>
           </div>
-          ${item.group}
-                  
+          ${dataFilter[0].group}                 
         `;
-      });
-      return html;
+      document.getElementById("header_20_0_0__dropdown").classList.add('active');
+      document.getElementById("header_20_0_0__dropdown").innerHTML = html;
     };
-    document.getElementsByClassName("header_20_0_0__dropdown").innerHTML =
-      renderDataHeader(header);
-    console.log(renderDataHeader(header));
-  }
-
-  function headerMobile() {
-    const renderDataHeaderMB = (obj) => {
-      let html = "";
-      obj.map((item) => {
-        html += `
-                  <li class="tab-link" data-content="${item.dataContent}">
-                      <i class="tab-icon ${item.iconClass}">
-                      </i>
-                      <span>
-                          ${item.cate}
-                      </span>
-                  </li>
-              `;
-      });
-      return html;
-    };
-    document.getElementById("tabs").innerHTML = renderDataHeaderMB(header);
-
-    const renderDataMB = (obj) => {
-      let html = "";
-      obj.map((item) => {
-        html += `
-              <li class="menuSub" id="${item.dataContent}">
-                  ${item.group}
-              </li>
-              `;
-      });
-      return html;
-    };
-    document.getElementById("menuChild").innerHTML = renderDataMB(header);
-
-    document.getElementsByClassName("menuSub")[0].classList.add("active");
-    document.getElementsByClassName("tab-link")[0].classList.add("active");
-
-    // click active menu mobile
-    var tabLinks = document.querySelectorAll(".tab-link");
-    var tabContent = document.querySelectorAll(".menuSub");
-
-    tabLinks.forEach(function (el) {
-      el.addEventListener("click", openTabs);
-    });
-
-    function openTabs(el) {
-      var btn = el.currentTarget; // lắng nghe sự kiện và hiển thị các element
-      var content = btn.dataset.content; // lấy giá trị trong data-electronic
-
-      tabContent.forEach(function (el) {
-        el.classList.remove("active");
-      });
-
-      tabLinks.forEach(function (el) {
-        el.classList.remove("active");
-        el.classList.remove("current");
-      });
-
-      document.querySelector("#" + content).classList.add("active");
-
-      btn.classList.add("active");
-      btn.classList.add("current");
+    if (window.innerWidth < 920) {
+      renderDataHeader(header, "Mắt");
     }
   }
-
-  const mbCard = () => {
-    return `
-          <div class="header_20_0_0__menu--mb" id="header_20_0_0__menu--mb">
-              <ul class="tabs" id="tabs"></ul>
-              <ul class="menuChild" id="menuChild"></ul>
-          </div>
-      `;
-  };
-  // const pcCard = () => {
-  //   return `
-  //     <div class="header_20_0_0__list">
-  //         <div class="header_20_0_0__listMenu" id="header_20_0_0__listMenu"></div>
-  //         <div class="header_20_0_0__flag header_20_0_0__flag-pc">
-  //             <div class="header_20_0_0__icon">
-  //             <a target="_blank" href="" rel="nofollow">
-  //                 <img width="33" height="18" src="https://benhvienthammykangnam.vn/wp-content/themes/SCI_Theme/Module/Header/header_20_0_0/images/en.gif" alt="en">
-  //             </a>
-  //             <a target="_blank" href="/">
-  //                 <img width="33" height="18" src="https://benhvienthammykangnam.vn/wp-content/themes/SCI_Theme/Module/Header/header_20_0_0/images/vi.gif" alt="vi">
-  //             </a>
-  //             </div>
-  //             <div class="header_20_0_0__search">
-  //                 <div class="header_20_0_0__btn location">
-  //                     <img width="20" height="20" src="https://benhvienthammykangnam.vn/wp-content/themes/SCI_Theme/Module/Header/header_20_0_0/images/location.svg" alt="location">
-  //                 </div>
-  //             </div>
-  //         </div>
-  //     </div>
-  //   `;
-  // };
   runBuild();
 }
 

@@ -33,15 +33,11 @@ const getDoctor = async () => {
     });
 
     const doctorCard = (data) => {
-        html = `
-            <div class="doctor_10_0_0__pic">
-                <img width="399" height="401" src="${data.doctor_img}" alt="" loading="lazy">
-            </div>
-            <div class="doctor_10_0_0__content">
-                ${data.doctor_dv}
-            </div>
-        `;
-        document.getElementById("doctor_10_0_0__box").innerHTML = html;
+        function doctor() {
+            document.getElementById("doctor_10_0_0__pic").src = data.doctor_img;
+            document.getElementById("doctor_10_0_0__content").innerHTML = data.doctor_dv;
+        }
+        doctor();
 
     }
 
