@@ -78,7 +78,7 @@ buildHeader = async (data) => {
       document.getElementById("header_20_0_0__dropdown").classList.add('active');
       document.getElementById("header_20_0_0__dropdown").innerHTML = html;
     };
-    if (window.innerWidth < 920) {
+    if (window.innerWidth < 1200) {
       renderDataHeader(header, "Mắt");
     }
     document.getElementById("headerMenuBtn").addEventListener("click", () => {

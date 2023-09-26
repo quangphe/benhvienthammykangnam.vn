@@ -247,7 +247,6 @@
       top: 0;
       left: 0;
       bottom: 0;
-      background: #fff;
       width: 300px;
       z-index: 20;
       transform: translateX(-100%);
@@ -347,7 +346,7 @@
       font-size: 14px;
     }
   }
-  @media (max-width: 920px) {
+  @media (max-width: 1199px) {
     &__box {
       padding: 5px 0;
     }
